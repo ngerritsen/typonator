@@ -1,0 +1,28 @@
+{
+  "name": "type-creator",
+  "version": "1.0.0",
+  "description": "Library to create type factories",
+  "main": "lib/type-creator.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngerritsen/type-creator.git"
+  },
+  "keywords": [
+    "javascript",
+    "js",
+    "type",
+    "factory"
+  ],
+  "author": "Niels Gerritsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ngerritsen/type-creator/issues"
+  },
+  "homepage": "https://github.com/ngerritsen/type-creator#readme",
+  "devDependencies": {
+    "ava": "^0.14.0"
+  }
+}
