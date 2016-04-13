@@ -40,17 +40,6 @@ var user = t.create({
 })
 ```
 
-Typonator is even cleaner in ES6:
-
-```js
-import { create, string, number } from 'typonator'
-
-const user = create({
-  name: string
-  age: number
-})
-```
-
 #### Default values
 
 By chaining a type checker with `.default(value)` you can specify a default. If the property is not defined or undefined, it will use the default one (it will not type check the default value).
