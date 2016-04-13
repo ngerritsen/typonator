@@ -1,8 +1,8 @@
 {
-  "name": "type-creator",
+  "name": "typonator",
   "version": "1.0.0",
-  "description": "Library to create type factories",
-  "main": "lib/type-creator.js",
+  "description": "Work with data types in Javascript",
+  "main": "lib/typonator.js",
   "scripts": {
     "test": "ava"
   },
