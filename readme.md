@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ngerritsen/typonator.svg?branch=master)](https://travis-ci.org/ngerritsen/typonator)
+
 # typonator
 
 A small library to work with types in Javascript.
@@ -7,6 +9,10 @@ A small library to work with types in Javascript.
 - _Typonator weighs only ~1kb!_
 
 ## Guide
+
+```
+npm install typonator
+```
 
 Typonator lets you create type factories. These can use the built in types of typonator.
 
@@ -78,3 +84,11 @@ const newUser = user({
   age: 32
 } */
 ```
+
+Possible types:
+
+- number
+- string
+- bool
+- function
+- object

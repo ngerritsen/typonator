@@ -4,7 +4,8 @@
   "description": "Work with data types in Javascript",
   "main": "lib/typonator.js",
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/ngerritsen/type-creator#readme",
   "devDependencies": {
-    "ava": "^0.14.0"
+    "ava": "^0.14.0",
+    "eslint": "^2.7.0"
   }
 }
