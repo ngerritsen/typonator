@@ -68,6 +68,35 @@ function isGender (value) {
 }
 ```
 
+#### Nesting types
+
+Types are nestable using `t.type(nestedType)`.
+
+```js
+var car = t.create({
+  price: t.number
+})
+
+var owner = t.create({
+  name: t.string,
+  car: t.type(car)
+})
+
+var pete = owner({
+  name: 'Pete',
+  car: {
+    price: '30000'
+  }
+})
+
+/* pete = {
+  name: 'Pete',
+  car: {
+    price: '30000'
+  }
+} */
+```
+
 [Back to top ↑](#guide)
 
 ### Using types
@@ -75,12 +104,12 @@ function isGender (value) {
 Use types as follows:
 
 ```js
-var newUser = user({
+var john = user({
   name: 'John Doe',
   age: 32
 })
 
-/* newUser is: {
+/* john = {
   name: 'John Doe',
   age: 32
 } */
@@ -90,17 +119,17 @@ Types throw an error when the wrong, or not all values are provided
 
 ```js
 // Trows an error
-var newUser = user({
+var john = user({
   name: 'John Doe',
   age: 'thirty-two'
 })
 
 // Also trows an error
-var newUser = user({
+var john = user({
   age: 32
 })
 
-var newUser = user({
+var john = user({
   name: 'John Doe',
   age: 32
 })
@@ -109,13 +138,13 @@ var newUser = user({
 Types ignore and filter out non-specified properties
 
 ```js
-var newUser = user({
+var john = user({
   name: 'John Doe',
   age: 32,
   gender: 'male'
 })
 
-/* newUser is: {
+/* john = {
   name: 'John Doe',
   age: 32
 } */
@@ -125,19 +154,21 @@ var newUser = user({
 
 ## Api reference
 
-#### `t.create(definition: Object<key, typeChecker>) => type: Function`
+### `t.create(definition: Object<key, typeChecker>) => type: Function`
 
-#### `t.custom(name: String, predicate: Function) => typeChecker: Function`
+### `t.custom(name: String, predicate: Function) => typeChecker: Function`
 
-#### `typeChecker.default(value: Any) => typeCheckerWithDefault: Function`
+### `t.type(type: Function) => typeChecker: Function`
+
+### `typeChecker.default(value: Any) => typeCheckerWithDefault: Function`
 
 #### Built in type checkers:
 
-#### `t.number`
-#### `t.string`
-#### `t.bool`
-#### `t.function`
-#### `t.object`
-#### `t.array`
+### `t.number`
+### `t.string`
+### `t.bool`
+### `t.function`
+### `t.object`
+### `t.array`
 
 [Back to top ↑](#guide)

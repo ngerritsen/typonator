@@ -1,7 +1,7 @@
 {
   "name": "typonator",
 
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Work with data types in Javascript",
   "main": "lib/typonator.js",
   "scripts": {
