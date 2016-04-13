@@ -4,28 +4,38 @@ var type = require('..')
 test('creates types', function (t) {
   var user = type.create({
     name: type.string,
-    age: type.number
+    age: type.number,
+    premium: type.bool,
+    friends: type.array
   })
 
   var john = user({
     name: 'John',
-    age: 32
+    age: 32,
+    premium: true,
+    friends: [ 'Bill' ]
   })
 
   var bill = user({
     name: 'Bill',
     age: 45,
+    premium: false,
+    friends: [ 'John' ],
     gender: 'male'
   })
 
   t.deepEqual(john, {
     name: 'John',
-    age: 32
+    age: 32,
+    premium: true,
+    friends: [ 'Bill' ]
   })
 
   t.deepEqual(bill, {
     name: 'Bill',
-    age: 45
+    age: 45,
+    premium: false,
+    friends: [ 'John' ]
   }, 'Ignores non-specified properties')
 })
 

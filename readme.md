@@ -92,3 +92,4 @@ Possible types:
 - bool
 - function
 - object
+- array
