@@ -1,10 +1,11 @@
 {
   "name": "typonator",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Work with data types in Javascript",
   "main": "lib/typonator.js",
   "scripts": {
-    "test": "ava",
+    "test": "ava -v",
+    "test:watch": "ava --watch",
     "lint": "eslint ."
   },
   "repository": {
