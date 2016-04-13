@@ -4,9 +4,11 @@
 
 A small library to work with types in Javascript.
 
-- _Typonator creates data types, not classes or class/module like structures._
+- _Typonator creates data types, not classes or module like structures._
 - _Typonator has no dependencies!_
-- _Typonator weighs only ~1kb!_
+- _Typonator weighs only ~1kb minified!_
+- _Typonator lets you create custom value types_
+- _Works with libraries like lodash or underscore for value type checking_
 
 ## Guide
 
@@ -14,7 +16,9 @@ A small library to work with types in Javascript.
 npm install typonator
 ```
 
-Typonator lets you create type factories. These can use the built in types of typonator.
+### Creating types
+
+Typonator lets you create type factories. You can use the built in value types of typonator:
 
 ```js
 var t = require('typonator')
@@ -24,6 +28,15 @@ var user = t.create({
   age: t.number
 })
 ```
+
+Built in value types:
+
+- number
+- string
+- bool
+- function
+- object
+- array
 
 Typonator is even cleaner in ES6:
 
@@ -36,15 +49,32 @@ const user = create({
 })
 ```
 
+### Custom value type checkers
+
+You can also create custom type checkers, give a name and a predicate that returns true or false. This allows you to create your own specialized type checkers or use libraries like lodash or underscore.
+
+```js
+var user = create({
+  age: t.custom('int', _.isInteger), // using lodash
+  gender: t.custom('gender', isGender)
+})
+
+function isGender (value) {
+  return value === 'm' || value === 'f'
+}
+```
+
+### Using types
+
 Use types as follows:
 
 ```js
-const newUser = user({
+var newUser = user({
   name: 'John Doe',
   age: 32
 })
 
-/* New user is now: {
+/* newUser is: {
   name: 'John Doe',
   age: 32
 } */
@@ -54,17 +84,17 @@ Types throw an error when the wrong, or not all values are provided
 
 ```js
 // Trows an error
-const newUser = user({
+var newUser = user({
   name: 'John Doe',
   age: 'thirty-two'
 })
 
 // Also trows an error
-const newUser = user({
+var newUser = user({
   age: 32
 })
 
-const newUser = user({
+var newUser = user({
   name: 'John Doe',
   age: 32
 })
@@ -73,23 +103,14 @@ const newUser = user({
 Types ignore and filter out non-specified properties
 
 ```js
-const newUser = user({
+var newUser = user({
   name: 'John Doe',
   age: 32,
   gender: 'male'
 })
 
-/* New user is now: {
+/* newUser is: {
   name: 'John Doe',
   age: 32
 } */
 ```
-
-Possible types:
-
-- number
-- string
-- bool
-- function
-- object
-- array
