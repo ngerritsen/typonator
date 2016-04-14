@@ -104,6 +104,13 @@ var pete = owner({
 Use types as follows:
 
 ```js
+// create a type
+var user = t.create({
+  age: t.custom('int', _.isInteger), // using lodash
+  gender: t.custom('gender', isGender)
+})
+
+// use it
 var john = user({
   name: 'John Doe',
   age: 32
@@ -129,6 +136,7 @@ var john = user({
   age: 32
 })
 
+// Works
 var john = user({
   name: 'John Doe',
   age: 32
